@@ -172,7 +172,7 @@ function renderPage({ files = [], uploadedUrl = '', error = '', message = '' }) 
   <script>
     document.querySelectorAll('[data-copy-url]').forEach(button => {
       button.addEventListener('click', async () => {
-        const absolute = `${window.location.origin}${button.getAttribute('data-copy-url')}`;
+        const absolute = window.location.origin + button.getAttribute('data-copy-url');
         try {
           await navigator.clipboard.writeText(absolute);
           button.textContent = 'Copied';
